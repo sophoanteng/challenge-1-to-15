@@ -73,10 +73,9 @@ function updateList() {
         <i class="fa ${item.done ? CHECK_STYLE : UNCHECK_STYLE} co" job="complete" id="${item.id}"></i>
         <p class="text ${item.done ? LINE_THOUGH_STYLE: "" }">${item.name}</p>
         <i class="fa fa-trash-o de" job="delete" id="${item.id}"></i>
-    </li>`;
-  LIST_HTML.innerHTML = code;
-  
+    </li>`; 
   }
+  LIST_HTML.innerHTML = code;
 }
 
 function saveJson() {
@@ -96,21 +95,44 @@ document.addEventListener("click", function(event) {
 
 
 function completeToDo(id) {
-  // TODO: todo via its id
-  const todo = getTodoFromId(id);
-  console.log(todo);
-  // check if todo != nulll
-  if(todo != null) {
+   // 1. Get the TODO from its ID
+  let todo = getTodoFromId(id);
+
+  if (todo != null) {
+    // 2. Change the status of this todo
     todo.done = !todo.done;
+
+    // 3. Save JSON
+    saveJSon();
+
+    // 4. refresh html
+    updateList();
   }
-  // save JSON
-  saveJson();
-  // update html
-  updateList();
-  // change status todo of done
 }	
 
 function removeToDo(id) {
-	
+  // 1. Find index todo element from ID
+  var index = -1;
+  for(let i = 0; i<todoItems.length; i++){
+    if(todoItems[i].id === id){
+      index = i;
+    }
+  }
+  if(index != -1){
+    todoItems.splice(index, 1);
+  }
+  saveJson();
+  updateList();
 }
+ var increesValue =  document.querySelector('.add-to-do');
+ increesValue.addEventListener("click", function(){
+  const inputValue = INPUT_HTML.value;
+
+  if (inputValue !== '') {
+    // 1. add the todo
+    addTodo(inputValue)
+    // 2.  Clear input
+    clearInput();
+  }
+});
 

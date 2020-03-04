@@ -16,16 +16,24 @@ const today = new Date();
 DATE_HTML.innerHTML = today.toLocaleString("en-US", options);
 
 document.addEventListener("keyup", event => {
-	  if(event.code === "Enter"){
-		const inputValue = INPUT_HTML.value;
-		if(inputValue != ""){
-			console.log(inputValue);
-			clearInput();
-		}
-	  } 
+	if (event.code == "Enter") {
+    const inputValue = INPUT_HTML.value;
+
+    if (inputValue != null) {
+      // 1. add the todo
+        addTodO(inputValue);
+	  // TODO: call addTodo function
+      // 2.  Clear input
+      clearInput();
+    }
+  }
 });
 
 function clearInput() {
-	// TODO: clear input
 	INPUT_HTML.value = "";
+}
+
+function addTodO(todoName) {
+  // TODO: console todoName
+  console.log(todoName);
 }

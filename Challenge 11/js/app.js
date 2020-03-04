@@ -24,7 +24,7 @@ if (data) {
 
   // 2. Update the current id
   id = todoItems.length;
-
+  
   // 3. refresh the view
   updateList();
 }
@@ -45,14 +45,14 @@ document.addEventListener("keyup", event => {
 function clearInput() {
 	INPUT_HTML.value = "";
 }
-// TODO: get id and return value (challeng 10)
+// TODO: get id and return value
 function getTodoFromId(id) {
-   for(let item of todoItems){
-     if(item.id === id) {
-        return item;
-     }
-   }
-   return null;
+  for(let item of todoItems) {
+    if(item.id === id) {
+      return  item;
+    }
+  }
+  return null;
 }
 
 function addTodo(todoName) {
@@ -63,7 +63,8 @@ function addTodo(todoName) {
   //3. save JSON
   saveJson() 
   // 4. update html
-	updateList();
+  updateList();
+  
 }
 
 function updateList() {
@@ -82,3 +83,11 @@ function updateList() {
 function saveJson() {
    localStorage.setItem("TODO", JSON.stringify(todoItems));
 }
+
+// TODO: create event click and get job attributes value 
+
+ document.addEventListener("click", function(event) {
+        const elementJob = event.target.attributes.job.value;
+        console.log(elementJob);
+  
+ });

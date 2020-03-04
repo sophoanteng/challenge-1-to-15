@@ -24,7 +24,7 @@ if (data) {
 
   // 2. Update the current id
   id = todoItems.length;
-  
+
   // 3. refresh the view
   updateList();
 }
@@ -63,8 +63,7 @@ function addTodo(todoName) {
   //3. save JSON
   saveJson() 
   // 4. update html
-  updateList();
-  
+	updateList();
 }
 
 function updateList() {
@@ -84,10 +83,13 @@ function saveJson() {
    localStorage.setItem("TODO", JSON.stringify(todoItems));
 }
 
-// TODO: create event click and get job attributes value 
+document.addEventListener("click", function(event) {
+  const elementJob = event.target.attributes.job.value;
+  // TODO: get id 
+   const elementId = parseInt(event.target.id);
+   console.log(elementId);
+  // TODO: check the codition if elementJob === "complete" console something complete
+  // however if elementJob === "delete" console something delete
 
- document.addEventListener("click", function(event) {
-        const elementJob = event.target.attributes.job.value;
-        console.log(elementJob);
-  
- });
+
+});

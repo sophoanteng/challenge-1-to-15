@@ -48,3 +48,12 @@ function addTodo(todoName) {
     console.log(todoItems);
 	// console array
 }
+
+function updateList() {
+  let code = "";
+  for(let item of todoItems) {
+    console.log(item);
+  }
+  // TODO: loop get value from array 
+  // console it.
+}

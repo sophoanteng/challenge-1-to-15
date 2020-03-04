@@ -95,15 +95,22 @@ document.addEventListener("click", function(event) {
 });
 
 
-// create function removeToDo() 
-// paramenter is id
-function removeToDo(id){
-    
-}
+function completeToDo(id) {
+  // TODO: todo via its id
+  const todo = getTodoFromId(id);
+  console.log(todo);
+  // check if todo != nulll
+  if(todo != null) {
+    todo.done = !todo.done;
+  }
+  // save JSON
+  saveJson();
+  // update html
+  updateList();
+  // change status todo of done
+}	
 
-// create function completeToDo()
-// paramenter is id
-function completeToDo(id){
-    
+function removeToDo(id) {
+	
 }
 

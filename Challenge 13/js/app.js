@@ -85,11 +85,25 @@ function saveJson() {
 
 document.addEventListener("click", function(event) {
   const elementJob = event.target.attributes.job.value;
-  // TODO: get id 
-   const elementId = parseInt(event.target.id);
-   console.log(elementId);
-  // TODO: check the codition if elementJob === "complete" console something complete
-  // however if elementJob === "delete" console something delete
+  const elementId = parseInt(event.target.id);
 
-
+  if (elementJob == "complete") {
+    completeToDo(elementId);
+  } else if (elementJob == "delete") {
+    removeToDo(elementId);
+  }
 });
+
+
+// create function removeToDo() 
+// paramenter is id
+function removeToDo(id){
+    
+}
+
+// create function completeToDo()
+// paramenter is id
+function completeToDo(id){
+    
+}
+
